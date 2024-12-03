@@ -1,0 +1,11 @@
+#!/bin/sh
+.TimeIt > run0.out
+mpirun -n 1 ./MPITimeIt> run1.out
+mpirun -n 2 ./MPITimeIt > run2.out
+ndiff --relative-error 1.0e-4 run1.out run2.out
+test1=$?
+
+ndiff --relative-error 1.0e-4 run0.out run2.out
+test2 =$?
+
+exit "$(($test1+$test2))"
