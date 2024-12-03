@@ -22,4 +22,5 @@ endforeach()
 
 add_custom_target(distclean
     COMMAND rm -rf CmakeCache.txt CMakeFiles
-    CTesty)
+    CTestTestfile.cmake Makefile Testing
+    cmake_install.cmake)
